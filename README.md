@@ -1,14 +1,5 @@
-# Turbo Typer
-[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://turbo-typer.herokuapp.com)
+# Hyper Type
+
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 
-Test and train your typing speed. Using faker.js for random word generation.
-
-You can try out Turbo Typer here: https://turbo-typer.herokuapp.com/
-
-
-
-### Todo
-- Custom time limits
-- Add additional insights into post-game modal
-- Multiplayer mode
+A web app to help test and train your typing speed.
