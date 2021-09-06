@@ -1,18 +1,18 @@
-const express = require("express");
+import express from "express";
+import Score from "../models/score";
 const router = express.Router();
-const Score = require("../models/score");
 
-router.get("/", (res: any) => {
-  res.send("Hello from Turbo Typer API.");
+router.get("/", (req: any, res: any) => {
+  res.send("Hypertype API");
 });
 
-router.get("/scores", (res: any, next: any) => {
+router.get("/scores", (req: any, res: any, next: any) => {
   Score.find({}, "score")
     .then((data: any) => res.json(data))
     .catch(next);
 });
 
-router.get("/scores/leaderboard", (res: any, next: any) => {
+router.get("/scores/leaderboard", (req: any, res: any, next: any) => {
   Score.find({ score: { $exists: true } })
     .sort({ score: -1 })
     .limit(5)
@@ -38,5 +38,4 @@ router.delete("/scores/:id", (req: any, res: any, next: any) => {
     .catch(next);
 });
 
-module.exports = router;
-export { router };
+export default router;

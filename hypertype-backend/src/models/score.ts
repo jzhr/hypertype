@@ -1,13 +1,16 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import { Schema, model } from "mongoose";
 
-const ScoreSchema = new Schema({
+interface Score {
+  score: string;
+}
+
+const ScoreSchema = new Schema<Score>({
   score: {
     type: String,
     required: [true, "The score text field is required"],
   },
 });
 
-const Score = mongoose.model("score", ScoreSchema);
+const Score = model<Score>("score", ScoreSchema);
 
-export { Score };
+export default Score;

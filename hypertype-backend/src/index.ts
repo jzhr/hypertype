@@ -1,11 +1,11 @@
-const express = require("express");
-const dotenv = require("dotenv");
+import express from "express";
+import dotenv from "dotenv";
+import path from "path";
 const cors = require("cors");
-const bodyParser = require("body-parser");
-const path = require("path");
-const routes = require("./routes/api");
 const mongoose = require("mongoose");
 require("dotenv").config();
+
+import routes from "./routes/api";
 
 // Create server and port
 const app = express();
@@ -23,20 +23,14 @@ const uri = process.env.ATLAS_URI;
 mongoose
   .connect(uri, {
     useNewUrlParser: true,
-    useCreateIndex: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("MONGO CONNECTED");
+    console.log("Database connection established.");
   })
-  .catch((err: any) => console.log());
+  .catch((err: any) => console.error(err));
 
 app.use(cors());
-app.use(bodyParser.json());
 
 // Set up routing
-app.get("/", function (res: any) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
-
-app.use("/api", routes);
+app.use("/", routes);
