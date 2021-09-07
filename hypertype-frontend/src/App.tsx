@@ -143,7 +143,7 @@ export default function App() {
 
   // for timer
   useEffect(() => {
-    document.title = "Turbo Typer";
+    document.title = "Hypertype";
 
     let timer: any;
     if (started !== false) {
@@ -165,7 +165,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="app">
-        <div className="app-header">turbo typer</div>
+        <div className="app-header">Hypertype</div>
         <div className="stats">
           <h3>wpm: {wpm} |</h3>
           <h3> cpm: {cpm} |</h3>
