@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import Button from "@material-ui/core/Button";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { generate } from "./util/words";
 import useKeyPress from "./hooks/useKeyPress";
@@ -9,6 +8,8 @@ import Modal from "./components/Modal";
 import downArrow from "./assets/arrow.svg";
 import { blue, green } from "@material-ui/core/colors";
 import Leaderboard from "./components/Leaderboard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRedo } from "@fortawesome/free-solid-svg-icons";
 
 const theme = createMuiTheme({
   palette: {
@@ -20,7 +21,7 @@ const theme = createMuiTheme({
 export default function App() {
   let initialWords = generate().toLowerCase();
 
-  const timerTime = 60;
+  const timerTime = 10;
 
   const [leftPadding, setLeftPadding] = useState(
     new Array(20).fill(" ").join("")
@@ -190,16 +191,13 @@ export default function App() {
             />
           ) : null}
           <h3 className="typo">{typoChars}</h3>
-          <ThemeProvider theme={theme}>
-            <Button
-              disabled={resetDisabled}
-              variant="outlined"
-              color="secondary"
+          <div className="redo">
+            <FontAwesomeIcon
+              style={resetDisabled ? { display: "none" } : {}}
               onClick={handleReset}
-            >
-              Reset
-            </Button>
-          </ThemeProvider>
+              icon={faRedo}
+            />
+          </div>
           <img
             className="arrow"
             src={downArrow}

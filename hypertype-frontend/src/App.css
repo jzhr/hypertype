@@ -1,11 +1,13 @@
 .app {
   text-align: center;
-  font-family: 'Oxygen Mono', monospace;
+  font-family: "Oxygen Mono", monospace;
 }
 
 .app-header {
   margin-top: 10px;
   font-size: 30px;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .game {
@@ -34,13 +36,13 @@
 
 @keyframes blinker {
   0% {
-    background-color: rgb(9, 211, 172, 1);
+    background-color: rgb(184, 23, 186, 1);
   }
   50% {
-    background-color: rgb(9, 211, 172, 0.5);
+    background-color: rgb(184, 23, 186, 0.5);
   }
   100% {
-    background-color: rgb(9, 211, 172, 1);
+    background-color: rgb(184, 23, 186, 1);
   }
 }
 
@@ -59,4 +61,13 @@
 h3 {
   display: inline;
   font-size: 18px;
+}
+
+.redo {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.redo:hover {
+  opacity: 1;
 }
