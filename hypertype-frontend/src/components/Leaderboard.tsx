@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axios from "../util/axios";
 import ListScores from "./ListScores";
 import Button from "@material-ui/core/Button";
 import refresh from "../assets/refresh.png";
@@ -21,7 +21,7 @@ class Leaderboard extends React.Component<Props, State> {
 
   getScores = () => {
     axios
-      .get("/api/scores/leaderboard")
+      .get("/scores/leaderboard")
       .then((res) => {
         if (res.data) {
           this.setState({
@@ -34,7 +34,7 @@ class Leaderboard extends React.Component<Props, State> {
 
   deleteScore = (id: any) => {
     axios
-      .delete(`/api/scores/${id}`)
+      .delete(`/scores/${id}`)
       .then((res) => {
         if (res.data) {
           this.getScores();

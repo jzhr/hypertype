@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axios from "../util/axios";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
@@ -26,7 +26,7 @@ class Popup extends React.Component<Props> {
 
     if (newScore && newScore.score.length > 0) {
       axios
-        .post("/api/scores", newScore)
+        .post("/scores", newScore)
         .then((res) => {
           if (res.data) {
             console.log("Added new score");
