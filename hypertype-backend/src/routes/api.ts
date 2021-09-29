@@ -13,6 +13,7 @@ router.get("/scores", (req: any, res: any, next: any) => {
 });
 
 router.get("/scores/leaderboard", (req: any, res: any, next: any) => {
+  console.log("Getting leaderboard scores.");
   Score.find({ score: { $exists: true } })
     .sort({ score: -1 })
     .limit(5)

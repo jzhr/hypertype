@@ -9,7 +9,7 @@ import routes from "./routes/api";
 
 // Create server and port
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 
 app.use(express.static(path.join(__dirname, "build")));
 
@@ -33,4 +33,8 @@ mongoose
 app.use(cors());
 
 // Set up routing
-app.use("/", routes);
+app.get("/", function (res: any) {
+  console.log("---Hypertype API---");
+});
+
+app.use("/api", routes);
