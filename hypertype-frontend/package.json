@@ -2,7 +2,7 @@
   "name": "hypertype-frontend",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://jzhr.github.io/hypertype",
+  "homepage": ".",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -29,7 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "aws s3 sync build/ s3:hypertype-frontend"
+    "deploy": "aws s3 sync build/ s3://www.hypertype.cc"
   },
   "eslintConfig": {
     "extends": [
