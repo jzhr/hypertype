@@ -3,7 +3,7 @@ import path from "path";
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, ".env") });
 
 import routes from "./routes/api";
 
