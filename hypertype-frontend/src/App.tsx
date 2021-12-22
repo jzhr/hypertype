@@ -21,7 +21,7 @@ const theme = createMuiTheme({
 export default function App() {
   let initialWords = generate().toLowerCase();
 
-  const timerTime = 10;
+  const timerTime = 60;
 
   const [leftPadding, setLeftPadding] = useState(
     new Array(20).fill(" ").join("")
