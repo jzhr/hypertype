@@ -1,15 +1,15 @@
 import express from "express";
-import dotenv from "dotenv";
 import path from "path";
 const cors = require("cors");
 const mongoose = require("mongoose");
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 
 import routes from "./routes/api";
 
 // Create server and port
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3500;
 
 app.use(express.static(path.join(__dirname, "build")));
 

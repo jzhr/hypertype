@@ -5,7 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-web": "tsc && node dist/index.js"
+    "start-web": "tsc && node dist/index.js",
+    "build": "cp .env ./dist/.env && tsc"
   },
   "keywords": [],
   "author": "Jason Zheng",
