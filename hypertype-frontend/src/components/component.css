@@ -1,15 +1,17 @@
-.popup {  
-  position: fixed;
-  z-index: 10;  
+.popup {
+  position: absolute;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;  
-  height: 80%;   
-  background-color: rgba(0, 0, 0, 0.87);
+  width: 50rem;
+  height: 30rem;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #31353f;
   border-radius: 10px;
-}  
-  
+}
+
 .leaderboard {
   background: #31353f;
   text-align: center;
