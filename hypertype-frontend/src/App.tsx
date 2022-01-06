@@ -202,7 +202,7 @@ export default function App() {
             className="arrow"
             src={downArrow}
             alt="down arrow"
-            width="30px"
+            width="60px"
           />
         </header>
         <Leaderboard />
