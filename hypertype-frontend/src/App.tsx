@@ -1,22 +1,12 @@
-import React from "react";
 import { useState, useEffect, useRef } from "react";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { generate } from "./util/words";
 import useKeyPress from "./hooks/useKeyPress";
 import currentTime from "./util/time";
 import Modal from "./components/Modal";
 import downArrow from "./assets/arrow.svg";
-import { blue, green } from "@material-ui/core/colors";
 import Leaderboard from "./components/Leaderboard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRedo } from "@fortawesome/free-solid-svg-icons";
-
-const theme = createMuiTheme({
-  palette: {
-    primary: blue,
-    secondary: green,
-  },
-});
 
 export default function App() {
   let initialWords = generate().toLowerCase();
@@ -164,50 +154,43 @@ export default function App() {
   }, [counter, started]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="app">
-        <div className="app-header">Hypertype</div>
-        <div className="stats">
-          <h3>wpm: {wpm} |</h3>
-          <h3> cpm: {cpm} |</h3>
-          <h3> acc: {accuracy}%</h3>
-        </div>
-
-        <header className="game">
-          {counter}s
-          <p className="character">
-            <span className="character-out">
-              {(leftPadding + outgoingChars).slice(-20)}
-            </span>
-            <span className="character-current">{currentChar}</span>
-            <span>{incomingChars.substr(0, 20)}</span>
-          </p>
-          {showModal ? (
-            <Modal
-              wpm={wpm}
-              cpm={cpm}
-              acc={accuracy}
-              closePopup={handleModalClose}
-            />
-          ) : null}
-          <h3 className="typo">{typoChars}</h3>
-          <div className="redo">
-            <FontAwesomeIcon
-              style={resetDisabled ? { display: "none" } : {}}
-              onClick={handleReset}
-              icon={faRedo}
-            />
-          </div>
-          <img
-            className="arrow"
-            src={downArrow}
-            alt="down arrow"
-            width="60px"
-          />
-        </header>
-        <Leaderboard />
-        <div ref={lbRef}></div>
+    <div className="app">
+      <div className="app-header">Hypertype</div>
+      <div className="stats">
+        <h3>wpm: {wpm} |</h3>
+        <h3> cpm: {cpm} |</h3>
+        <h3> acc: {accuracy}%</h3>
       </div>
-    </ThemeProvider>
+
+      <header className="game">
+        {counter}s
+        <p className="character">
+          <span className="character-out">
+            {(leftPadding + outgoingChars).slice(-20)}
+          </span>
+          <span className="character-current">{currentChar}</span>
+          <span>{incomingChars.substr(0, 20)}</span>
+        </p>
+        {showModal ? (
+          <Modal
+            wpm={wpm}
+            cpm={cpm}
+            acc={accuracy}
+            closePopup={handleModalClose}
+          />
+        ) : null}
+        <h3 className="typo">{typoChars}</h3>
+        <div className="redo">
+          <FontAwesomeIcon
+            style={resetDisabled ? { display: "none" } : {}}
+            onClick={handleReset}
+            icon={faRedo}
+          />
+        </div>
+        <img className="arrow" src={downArrow} alt="down arrow" width="60px" />
+      </header>
+      <Leaderboard />
+      <div ref={lbRef}></div>
+    </div>
   );
 }
